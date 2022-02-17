@@ -1,7 +1,6 @@
 import asyncio
 from time import time
 from datetime import datetime
-from modules.config import BOT_USERNAME
 from modules.helpers.filters import command
 from modules.helpers.command import commandpro
 from pyrogram import Client, filters
@@ -39,7 +38,7 @@ async def start_(client: Client, message: Message):
 [BOT FAST LIKE FAST AS FUCK]
 ┏━━━━━━━━━━━━━━━━━┓
 ┣★ OWNER    : [AKG_ANTHESM](https://t.me/AKG_ANTHESM)
-┣★ 𝙎𝙪𝙥𝙥𝙤𝙧𝙩  : [BACKCHODI POINT](https://t.me/anthesm_support)
+┣★ 𝙎𝙪𝙥𝙥𝙤𝙧𝙩  : [BACKCHODI POINT](https://t.me/CHOCO_AUTOBOT)
 ┗━━━━━━━━━━━━━━━━━┛
 
 ━━━━━━━━━━━━━━━━━━━━━━━━**""",
@@ -47,7 +46,7 @@ async def start_(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                       " ❰ ADD TO YOUR GROUP ❱", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "➕ ❰ ᴊᴏɪɴ ʜᴇʀᴇ ғᴏʀ ᴜᴘᴅᴀᴛᴇs ❱ ➕", url=f"https://t.me/CHOCO_AUTOBOT")
                 ]
                 
            ]
@@ -55,17 +54,26 @@ async def start_(client: Client, message: Message):
     )
     
     
-@Client.on_message(commandpro(["/start", "/alive", "akg", "simi"]) & filters.group & ~filters.edited)
+@Client.on_message(commandpro(["/start", "/alive", "aditya"]) & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/342a3f2ff01dfdcdbe9ab.jpg",
-        caption=f"""""",
+           photo=f"https://telegra.ph/file/342a3f2ff01dfdcdbe9ab.jpg",
+        caption=f"""**━━━━━━━━━━━━━━━━━━━━━━━━
+[BOT FAST LIKE FAST AS FUCK]
+┏━━━━━━━━━━━━━━━━━┓
+┣★ OWNER    : [AKG_ANTHESM](https://t.me/AKG_ANTHESM)
+┣★ 𝙎𝙪𝙥𝙥𝙤𝙧𝙩  : [BACKCHODI POINT](https://t.me/anthesm_support)
+┗━━━━━━━━━━━━━━━━━┛
+
+━━━━━━━━━━━━━━━━━━━━━━━━**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "JOIN FOR BAKCHODI", url=f"https://t.me/anthesm_support")
+                        "ᴊᴏɪɴ ʜᴇʀᴇ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/CHOCO_AUTOBOT")
                 ]
             ]
         ),
     )
+
+
