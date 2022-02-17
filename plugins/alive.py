@@ -5,6 +5,7 @@ from modules.helpers.filters import command
 from modules.helpers.command import commandpro
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from time import time
 
 
 START_TIME = datetime.utcnow()
@@ -57,6 +58,9 @@ async def start(client: Client, message: Message):
 @Client.on_message(commandpro(["ban"]) & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
     
+    # Ban chat member forever
+app.ban_chat_member(chat_id, user_id)
+
     
     
     await message.reply_photo(
