@@ -1,3 +1,4 @@
+# Aditya Halder // @AdityaHalder
 
 import os
 import aiofiles
@@ -86,12 +87,6 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     draw.text((190, 550), f"Title: {title[:50]} ...", (255, 255, 255), font=font)
     draw.text((190, 590), f"Duration: {duration}", (255, 255, 255), font=font)
     draw.text((190, 630), f"Views: {views}", (255, 255, 255), font=font)
-    draw.text(
-        (190, 670),
-        f"POWERED BY LEECHER CHOCO",
-        (255, 255, 255),
-        font=font,
-    )
     img.save("final.png")
     os.remove("temp.png")
     os.remove("background.png")
@@ -108,7 +103,7 @@ async def play(_, message: Message):
     global que
     global useer
     
-    lel = await message.reply("** FINDING SWEET ....  **")
+    lel = await message.reply("**FINDING SWEET ...**")
 
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
@@ -116,7 +111,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "CHOCO AUTOBOT"
+        user.first_name = "CHOCO  AUTOBOT"
     usar = user
     wew = usar.id
     try:
@@ -128,24 +123,24 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "**FIRST MAKE ADMIN IN CHAT...**")
+                        "**FIRST MAKE ME ADMIN ...**")
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "** READY FOR DISTRIBUTE SWEET...**")
+                        message.chat.id, "** READY TO PLAY...**")
 
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
                     await lel.edit(
-                        f"**ADD ASSISTANT MANUALLY...** ")
+                        f"**ADD ASSISTANT MANUALLY..** ")
     try:
         await USER.get_chat(chid)
     except:
         await lel.edit(
-            f"**ADD ASSISTANT MANUALLY...*")
+            f"**ADD ASSISTANT MANUALLY..*")
         return
     
     audio = (
@@ -158,7 +153,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"**PLAY LESS THEN {DURATION_LIMIT} MINUTE's...**"
+                f"**PLAY LESS THEN  {DURATION_LIMIT} MINUTE's ...**"
             )
 
         file_name = get_file_name(audio)
@@ -245,10 +240,9 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "**GIVE SONG NAME TO PLAY...**"
+                "**GIVE SONG NAME..**"
             )
-        
-        
+        await lel.edit("**🔄 Ƥɤøƈɘssɩɳʛ ...**")
         query = message.text.split(None, 1)[1]
         # print(query)
         try:
@@ -273,7 +267,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "**SONG NOT FOUND \nFIND ANOTHER SONG...**"
+                "**MUSIC NOT  FOUND...**"
             )
             print(str(e))
             return
@@ -291,7 +285,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"**PLAY LESS THEN 60  {DURATION_LIMIT} MINUTE's ...**"
+                f"**PLAY LESS THEN  {DURATION_LIMIT} MINUTE's ...**"
             )
             return
         requested_by = message.from_user.first_name
@@ -305,7 +299,7 @@ async def play(_, message: Message):
         position = await queues.put(chat_id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**CHOCO AUTOBOT PLACED YOUR SONG AT POSITION » `{}` ...**".format(position),
+            caption="**PROCESS AT POSITON » `{}` 🌷 ...**".format(position),
             reply_markup=keyboard,
         )
     else:
@@ -336,7 +330,7 @@ async def pause(_, message: Message):
     await clientbot.pytgcalls.pause_stream(message.chat.id)
     await message.reply_photo(
                              photo="https://telegra.ph/file/f6acd240ed74487b45f95.jpg", 
-                             caption="**CHOCO AUTOBOT PAUSE THE SONG...**"
+                             caption="**CHOCO PAUSED SONG ...**"
     )
 
 
@@ -347,7 +341,7 @@ async def resume(_, message: Message):
     await clientbot.pytgcalls.resume_stream(message.chat.id)
     await message.reply_photo(
                              photo="https://telegra.ph/file/f6acd240ed74487b45f95.jpg", 
-                             caption="**CHOCO AUTOBOT PLAY YOUR SONG ...**"
+                             caption="**CHOCO AUTOBOT PLAYING THE SONG ...**"
     )
 
 
@@ -362,7 +356,7 @@ async def skip(_, message: Message):
     for x in clientbot.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("**THERE IS NOTHING TO PLAY ...**")
+        await message.reply_text("**NOTHING TO PLAY...**")
     else:
         queues.task_done(chat_id)
         
@@ -381,7 +375,7 @@ async def skip(_, message: Message):
 
     await message.reply_photo(
                              photo="https://telegra.ph/file/f6acd240ed74487b45f95.jpg", 
-                             caption=f'**SONG IS TERMINATED...**'
+                             caption=f'**CHOCO SKIP YOUR SONG ...**'
    ) 
 
 
@@ -397,7 +391,7 @@ async def stop(_, message: Message):
     await clientbot.pytgcalls.leave_group_call(message.chat.id)
     await message.reply_photo(
                              photo="https://telegra.ph/file/f6acd240ed74487b45f95.jpg", 
-                             caption="**SONG IS TERMINATED..**"
+                             caption="**CHOCO TERMINATE THE SONG ...**"
     )
 
 
@@ -415,5 +409,5 @@ async def admincache(client, message: Message):
 
     await message.reply_photo(
                               photo="https://telegra.ph/file/f6acd240ed74487b45f95.jpg",
-                              caption="**ALL FILES CLEARED FROM SERVER \n NOW YOU CAN PLAY SONG...**"
+                              caption="**BOT RELOADED...**"
     )
