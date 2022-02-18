@@ -55,33 +55,5 @@ async def start(client: Client, message: Message):
         ),
     )
    
-@Client.on_message(commandpro(["ban"]) & filters.group & ~filters.edited)
-async def start(client: Client, message: Message):
-    
-    # Ban chat member forever
-app.ban_chat_member(chat_id, user_id)
-
-    
-    
-    await message.reply_photo(
-           photo=f"https://telegra.ph/file/342a3f2ff01dfdcdbe9ab.jpg",
-        caption=f"""**━━━━━━━━━━━━━━━━━━━━━━━━
-[BOT FAST LIKE FAST AS FUCK]
-[CHUDGAYI NA AMMA TERI]
-┏━━━━━━━━━━━━━━━━━┓
-┣★ OWNER    : [AKG_ANTHESM](https://t.me/AKG_ANTHESM)
-┣★ 𝙎𝙪𝙥𝙥𝙤𝙧𝙩  : [BACKCHODI POINT](https://t.me/anthesm_support)
-┗━━━━━━━━━━━━━━━━━┛
-━━━━━━━━━━━━━━━━━━━━━━━━**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "ᴊᴏɪɴ ʜᴇʀᴇ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/CHOCO_AUTOBOT")
-                ]
-            ]
-        ),
-    )
-
 
 
